@@ -47,15 +47,15 @@ function CardGroup({ trendList, cutInitial, loadingTrend }) {
       </Stack>
       <Divider />
       <Grid container direction="row" spacing={5} mt={2}>
-        {loadingTrend ? placeholder.map((item) => (
+        {loadingTrend?placeholder.map((item) => (
               <Grid key={item.id} item xs={6} sm={4} md={3}>
                 {detailSkeleton}
               </Grid>
-            )) : cutList ? cutList.map((item) => (
+            )) : cutList?cutList.map((item) => (
               <Grid key={item.id} item xs={6} sm={4} md={3}>
                 <MCard item={item} />
               </Grid>
-            )) : cutInitial ?.map((item) => (
+            )) : cutInitial?.map((item) => (
               <Grid key={item.id} item xs={6} sm={4} md={3}>
                 <MCard item={item} />
               </Grid>

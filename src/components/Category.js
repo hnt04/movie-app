@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import apiService from "../api/apiService";
-import { API_KEY, BASE_URL } from "../api/config";
+import { API_KEY } from "../api/config";
 import Grid from "@mui/material/Grid";
 import MCard from "./MCard";
 import Stack from "@mui/material/Stack";
