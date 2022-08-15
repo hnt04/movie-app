@@ -209,7 +209,7 @@ export default function Category() {
           </Box>
         </Stack>
 
-        <Grid container direction="row" spacing={2} mt={2}>
+        <Grid container direction="row" spacing={2} mt={2} sx={{marginLeft:"20%"}}>
           {loading
             ? placeholder.map((item) => (
                 <Grid item xs={8} sm={6} md={4} lg={3}>

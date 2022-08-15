@@ -120,7 +120,7 @@ function DetailCard({ movieDetail, loading }) {
                 />
                 <Typography
                   sx={{
-                    marginRight: "34px",
+                    marginRight: "30px",
                     marginTop: "10px",
                   }}
                   color="error"
@@ -134,7 +134,6 @@ function DetailCard({ movieDetail, loading }) {
                 {`${movieDetail.overview}`}
               </Typography>
             </Stack>
-
             <Stack
               my={{ xs: 2, md: 1 }}
               flexDirection="row"

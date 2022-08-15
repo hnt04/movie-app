@@ -44,9 +44,9 @@ export default function Form() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin: "2rem",
-        outline: "0",
+        margin: "2em",
       }}
+      className="modal-login"
     >
       <Box>
         <Paper
