@@ -32,8 +32,7 @@ export default function Form() {
   const [showPassword, setShowPassword] = useState(false);
   const onSubmit = (data) => {
     auth.signIn(data.email, () => {
-
-      navigate(from, { replace: true });
+    navigate(from, { replace: true });
     });
   };
   return (

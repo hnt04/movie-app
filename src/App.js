@@ -4,7 +4,6 @@ import Router from "./routes/Router";
 import ThemeProvider from "./auth/ThemeProvider";
 import { AuthProvider } from "./auth/AuthContext";
 import "./App.css";
-import { ClassNames } from "@emotion/react";
 
 function App() {
   return (

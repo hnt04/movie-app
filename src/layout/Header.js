@@ -35,7 +35,6 @@ export default function Header() {
   const handleClose = () => {
     setAnchor(null);
     handleMobileMenuClose();
-    console.log(location);
   };
 
   const handleLogout = () => {

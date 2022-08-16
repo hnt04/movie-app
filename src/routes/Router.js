@@ -3,7 +3,7 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Layout from "../layout/Layout";
 import HomePage from "../page/HomePage";
 import Discovery from "../page/Discovery";
-import FormPage from "../page/Form";
+import Form from "../page/Form";
 import MovieDetail from "../page/MovieDetail";
 import FavoritePage from "../page/Favorite";
 import PageNotFound from "../page/PageNotFound";
@@ -28,7 +28,7 @@ function Router() {
           <Route index element={<HomePage />} />
           <Route path="discovery/:pageId" element={<Discovery />} />
           <Route path="/movie/:movieId" element={<MovieDetail />} />
-          <Route path="/login" element={<FormPage />} />
+          <Route path="/login" element={<Form />} />
           <Route path="*" element={<PageNotFound />} />
           <Route
             path="/favorite"
