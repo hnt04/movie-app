@@ -15,25 +15,27 @@ import IconButton from "@mui/material/IconButton";
 function DetailCard({ movieDetail, loading }) {
   let { movieId } = useParams();
   const [movieError, setMovieError] = useState();
+  const [favMovie, setFavMovie] = useState([])
 
-  const addFavMovie = (title, poster, voteA, voteC, id) => {
+  const addFavMovie = (title, poster, voteA, voteC, movieId) => {
+    console.log(movieId);
     let list = JSON.parse(localStorage.getItem("fav"));
     if (list) {
       let itemId;
       for (let i = 0; i < list.length; i++) {
         itemId = list[i].movie.id;
       }
-      if (itemId.includes(movieId)) {
+      console.log("itemId",itemId)
+      if (itemId.includes(id)) {
         setMovieError("This movie is available!");
       } else {
         list.push({
-          id: id,
+          movieId: id,
           original_title: title,
           poster_path: poster,
           vote_average: voteA,
           vote_count: voteC,
         });
-
         localStorage.setItem("fav", JSON.stringify(list));
         setMovieError("Added!");
       }
@@ -41,7 +43,7 @@ function DetailCard({ movieDetail, loading }) {
       localStorage.setItem("fav", JSON.stringify([]));
       list = JSON.parse(localStorage.getItem("fav"));
       list.push({
-        id: id,
+        movieId: id,
         original_title: title,
         poster_path: poster,
         vote_average: voteA,
@@ -50,6 +52,13 @@ function DetailCard({ movieDetail, loading }) {
       localStorage.setItem("fav", JSON.stringify(list));
       setMovieError("Added!");
     }
+    setFavMovie([...favMovie,list.push({
+        movieId: id,
+        original_title: title,
+        poster_path: poster,
+        vote_average: voteA,
+        vote_count: voteC,
+    })])
   };
   const detailSkeleton = (
     <Stack spacing={1}>
@@ -104,6 +113,7 @@ function DetailCard({ movieDetail, loading }) {
                 <IconButton
                   onClick={() =>
                     addFavMovie(
+                      movieDetail.movieId,
                       movieDetail.original_title,
                       movieDetail.poster_path,
                       movieDetail.vote_average,
@@ -117,7 +127,7 @@ function DetailCard({ movieDetail, loading }) {
                     backgroundColor: "rgba(225,0,0,0.9)",
                     marginRight: "30px",
                   }}
-                />
+                  />
                 <Typography
                   sx={{
                     marginRight: "30px",

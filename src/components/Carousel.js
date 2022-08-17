@@ -22,7 +22,7 @@ export default function Carousel(props) {
         );
         const result = res.data.results;
 
-        setCutInitial([...result].splice(12, 8));
+        setCutInitial([...result].splice(12, 6));
         setLoading(false);
       } catch (e) {
         console.log(e.message);

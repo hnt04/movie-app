@@ -8,7 +8,7 @@ import MovieDetail from "../page/MovieDetail";
 import FavoritePage from "../page/Favorite";
 import PageNotFound from "../page/PageNotFound";
 import { useAuth } from "../auth/AuthContext";
-import Form from "../components/LogInForm";
+import LogInForm from "../components/LogInForm";
 
 function Router() {
   let location = useLocation();
@@ -28,7 +28,7 @@ function Router() {
           <Route index element={<HomePage />} />
           <Route path="discovery/:pageId" element={<Discovery />} />
           <Route path="/movie/:movieId" element={<MovieDetail />} />
-          <Route path="/login" element={<Form />} />
+          <Route path="/login" element={<LogInForm />} />
           <Route path="*" element={<PageNotFound />} />
           <Route
             path="/favorite"

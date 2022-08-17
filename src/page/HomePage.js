@@ -23,9 +23,9 @@ function HomePage() {
       } catch (e) {
         console.log(e.message);
       }
-    };
-    fetchData();
-  }, []);
+      };
+      fetchData();
+    }, []);
 
   return (
     <>
