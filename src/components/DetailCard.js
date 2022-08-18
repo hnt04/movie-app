@@ -17,20 +17,20 @@ function DetailCard({ movieDetail, loading }) {
   const [movieError, setMovieError] = useState();
   const [favMovie, setFavMovie] = useState([])
 
-  const addFavMovie = (title, poster, voteA, voteC, movieId) => {
-    console.log(movieId);
+  const addFavMovie = ({title, poster, voteA, voteC, id}) => {
+    console.log(id);
     let list = JSON.parse(localStorage.getItem("fav"));
     if (list) {
-      let itemId;
+      let itemId = [];
       for (let i = 0; i < list.length; i++) {
-        itemId = list[i].movie.id;
+        itemId.push(list[i].movieId)
       }
       console.log("itemId",itemId)
       if (itemId.includes(id)) {
         setMovieError("This movie is available!");
       } else {
         list.push({
-          movieId: id,
+          id: id,
           original_title: title,
           poster_path: poster,
           vote_average: voteA,
@@ -43,7 +43,7 @@ function DetailCard({ movieDetail, loading }) {
       localStorage.setItem("fav", JSON.stringify([]));
       list = JSON.parse(localStorage.getItem("fav"));
       list.push({
-        movieId: id,
+        id: id,
         original_title: title,
         poster_path: poster,
         vote_average: voteA,
@@ -52,13 +52,16 @@ function DetailCard({ movieDetail, loading }) {
       localStorage.setItem("fav", JSON.stringify(list));
       setMovieError("Added!");
     }
-    setFavMovie([...favMovie,list.push({
-        movieId: id,
-        original_title: title,
-        poster_path: poster,
-        vote_average: voteA,
-        vote_count: voteC,
-    })])
+    // setFavMovie([...favMovie,...list.push({
+    //     movieId: id,
+    //     original_title: title,
+    //     poster_path: poster,
+    //     vote_average: voteA,
+    //     vote_count: voteC,
+    // })])
+
+    setFavMovie(list);
+    
   };
   const detailSkeleton = (
     <Stack spacing={1}>
@@ -112,13 +115,13 @@ function DetailCard({ movieDetail, loading }) {
               <Stack flexDirection="column" alignItems="end">
                 <IconButton
                   onClick={() =>
-                    addFavMovie(
-                      movieDetail.movieId,
-                      movieDetail.original_title,
-                      movieDetail.poster_path,
-                      movieDetail.vote_average,
-                      movieDetail.vote_count,
-                      movieId
+                    addFavMovie({
+                      id: movieDetail.id,
+                      title: movieDetail.original_title,
+                      poster: movieDetail.poster_path,
+                      voteA: movieDetail.vote_average,
+                      voteC: movieDetail.vote_count,
+                      }
                     )
                   }
                   size="large"
