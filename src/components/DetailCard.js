@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
@@ -13,9 +12,8 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import IconButton from "@mui/material/IconButton";
 
 function DetailCard({ movieDetail, loading }) {
-  let { movieId } = useParams();
   const [movieError, setMovieError] = useState();
-  const [favMovie, setFavMovie] = useState([])
+  const [setFavMovie] = useState([])
 
   const addFavMovie = ({title, poster, voteA, voteC, id}) => {
     console.log(id);
